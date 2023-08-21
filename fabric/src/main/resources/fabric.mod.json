@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "containersearch",
+  "version": "${version}",
+  "name": "ContainerSearch",
+  "description": "",
+  "icon": "assets/containersearch/icon.png",
+  "authors": [
+    "jjblock21"
+  ],
+  "contact": {
+  },
+  "license": "MIT",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "me.containersearch.fabric.ContainerSearchFabric"
+    ]
+  },
+  "mixins": [
+    "containersearch.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.14.21",
+    "minecraft": "~1.20"
+  }
+}

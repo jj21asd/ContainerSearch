@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "me.containersearch.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "AbstractContainerScreenAccessor",
+    "AbstractContainerScreenMixin",
+    "chest.ContainerScreenMixin",
+    "ScreenAccessor",
+    "shulkerbox.ShulkerBoxScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "shulkerbox.ShulkerBoxMenuAccessor"
+  ]
+}
