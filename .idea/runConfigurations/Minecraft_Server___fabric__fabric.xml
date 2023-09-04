@@ -1,9 +1,9 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" factoryName="Application" name="Minecraft Server (:fabric)" type="Application">
     <option name="MAIN_CLASS_NAME" value="dev.architectury.transformer.TransformerRuntime"/>
-    <module name="ChestSearch.fabric.main"/>
+    <module name="ContainerSearch.fabric.main"/>
     <option name="PROGRAM_PARAMETERS" value="nogui"/>
-    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=E:\ChestSearch\fabric\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=server -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotServer -Darchitectury.main.class=E:\ChestSearch\fabric\.gradle\architectury\.main_class -Darchitectury.runtime.transformer=E:\ChestSearch\fabric\.gradle\architectury\.transforms -Darchitectury.properties=E:\ChestSearch\fabric\.gradle\architectury\.properties -Djdk.attach.allowAttachSelf=true -javaagent:E:\ChestSearch\.gradle\architectury\architectury-transformer-agent.jar"/>
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=E:\ContainerSearch\fabric\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=server -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotServer -Darchitectury.main.class=E:\ContainerSearch\fabric\.gradle\architectury\.main_class -Darchitectury.runtime.transformer=E:\ContainerSearch\fabric\.gradle\architectury\.transforms -Darchitectury.properties=E:\ContainerSearch\fabric\.gradle\architectury\.properties -Djdk.attach.allowAttachSelf=true -javaagent:E:\ContainerSearch\.gradle\architectury\architectury-transformer-agent.jar"/>
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fabric/run/"/>
     <method v="2">
       <option enabled="true" name="Make"/>

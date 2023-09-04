@@ -3,12 +3,14 @@
   "id": "containersearch",
   "version": "${version}",
   "name": "ContainerSearch",
-  "description": "",
+  "description": "A simple mod that allows you to search for items and shulkers inside containers",
   "icon": "assets/containersearch/icon.png",
   "authors": [
     "jjblock21"
   ],
   "contact": {
+    "sources": "https://github.com/jjblock21/ContainerSearch",
+    "issues": "https://github.com/jjblock21/ContainerSearch/issues"
   },
   "license": "MIT",
   "environment": "client",
