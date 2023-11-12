@@ -15,9 +15,8 @@ public class SearchBox extends EditBox {
     public void renderWidget(GuiGraphics guiGraphics, int i, int j, float f) {
         super.renderWidget(guiGraphics, i, j, f);
 
-        // Render magnifying glass icon.
         int right = getRectangle().right() - 8 - 1;
-        int top = getY() + 1;
+        int top = getY() + getRectangle().height() / 2 - 4;
 
         if (isFocused()) {
             guiGraphics.blit(ContainerSearchMain.SEARCH_ICON_LOCATION, right, top, 8, 0, 8, 8, 16, 8);

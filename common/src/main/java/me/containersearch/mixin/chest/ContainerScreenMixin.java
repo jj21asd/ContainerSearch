@@ -21,7 +21,7 @@ public class ContainerScreenMixin extends AbstractContainerScreenMixin<ChestMenu
         ScreenAccessor accessor1 = (ScreenAccessor)this;
 
         SearchBox searchBox = new SearchBox(Minecraft.getInstance().font, accessor1.getWidth() / 2 - 60,
-                accessor.getTopPos() - 4 - 10, 120, 10, Component.empty());
+                accessor.getTopPos() - 4 - 12, 120, 12, Component.empty());
         addRenderableWidget(searchBox);
 
         searchHandler = new ContainerSearchHandler(getMenu(), getMenu().getContainer(), searchBox);

@@ -3,7 +3,7 @@
     <option name="MAIN_CLASS_NAME" value="dev.architectury.transformer.TransformerRuntime" />
     <module name="ContainerSearch.fabric.main" />
     <option name="PROGRAM_PARAMETERS" value="" />
-    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=E:\ContainerSearch\fabric\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotClient -Darchitectury.main.class=E:\ContainerSearch\fabric\.gradle\architectury\.main_class -Darchitectury.runtime.transformer=E:\ContainerSearch\fabric\.gradle\architectury\.transforms -Darchitectury.properties=E:\ContainerSearch\fabric\.gradle\architectury\.properties -Djdk.attach.allowAttachSelf=true -javaagent:E:\ContainerSearch\.gradle\architectury\architectury-transformer-agent.jar" />
+    <option name="VM_PARAMETERS" value="-Dfabric.dli.config=E:\Projects\ContainerSearch\fabric\.gradle\loom-cache\launch.cfg -Dfabric.dli.env=client -Dfabric.dli.main=net.fabricmc.loader.impl.launch.knot.KnotClient -Darchitectury.main.class=E:\Projects\ContainerSearch\fabric\.gradle\architectury\.main_class -Darchitectury.runtime.transformer=E:\Projects\ContainerSearch\fabric\.gradle\architectury\.transforms -Darchitectury.properties=E:\Projects\ContainerSearch\fabric\.gradle\architectury\.properties -Djdk.attach.allowAttachSelf=true -javaagent:E:\Projects\ContainerSearch\.gradle\architectury\architectury-transformer-agent.jar" />
     <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/fabric/run/" />
     <method v="2">
       <option name="Make" enabled="true" />

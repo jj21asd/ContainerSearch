@@ -22,7 +22,7 @@ public class ShulkerBoxScreenMixin extends AbstractContainerScreenMixin<ShulkerB
         ShulkerBoxMenuAccessor accessor2 = (ShulkerBoxMenuAccessor)getMenu();
 
         SearchBox searchBox = new SearchBox(Minecraft.getInstance().font, accessor1.getWidth() / 2 - 60,
-                accessor.getTopPos() - 4 - 10, 120, 10, Component.empty());
+                accessor.getTopPos() - 4 - 12, 120, 12, Component.empty());
         addRenderableWidget(searchBox);
 
         searchHandler = new ContainerSearchHandler(getMenu(), accessor2.getContainer(), searchBox);
