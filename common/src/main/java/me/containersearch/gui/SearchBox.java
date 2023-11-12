@@ -15,7 +15,7 @@ public class SearchBox extends EditBox {
     public void renderWidget(GuiGraphics guiGraphics, int i, int j, float f) {
         super.renderWidget(guiGraphics, i, j, f);
 
-        int right = getRectangle().right() - 8 - 1;
+        int right = getRectangle().right() - 8 - 2;
         int top = getY() + getRectangle().height() / 2 - 4;
 
         if (isFocused()) {
