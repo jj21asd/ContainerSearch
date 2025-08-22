@@ -1,0 +1,33 @@
+processResources {
+    var props = [
+            'version'                   : version,
+            'java_version'              : java_version,
+            'mod_name'                  : mod_name,
+            'mod_id'                    : mod_id,
+            'authors'                   : authors,
+            'license'                   : license,
+            'description'               : description,
+            'repository_url'            : repository_url,
+            'issue_tracker_url'         : issue_tracker_url,
+            'minecraft_version'         : minecraft_version,
+            'minecraft_version_fabric'  : minecraft_version_fabric,
+            'minecraft_version_forge'   : minecraft_version_forge,
+            'fabric_loader_version'     : fabric_loader_version,
+            'fabric_api_version'        : fabric_api_version,
+            "forge_loader_version"      : forge_loader_version,
+            "forge_version"             : forge_version,
+    ]
+
+    inputs.properties(props)
+
+    var propsJson = props.collectEntries {
+        key, value -> [(key): value instanceof String ? value.replace("\n", "\\\\n") : value]
+    }
+
+    filesMatching(['META-INF/mods.toml']) {
+        expand props
+    }
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json']) {
+        expand propsJson
+    }
+}
