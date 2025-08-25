@@ -1,15 +1,13 @@
 {
   "required": true,
-  "package": "me.jjblock21.containersearch.mixin",
+  "package": "me.jjblock21.containersearch.mixins",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
-    "HandledScreenAccessor",
+    "SlotMixin",
     "HandledScreenMixin",
-    "ScreenAccessor",
-    "chest.GenericContainerScreenMixin",
-    "shulkerbox.ShulkerBoxScreenMixin",
-    "shulkerbox.ShulkerBoxScreenHandlerAccessor"
+    "containers.GenericContainerScreenMixin",
+    "containers.ShukerBoxScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

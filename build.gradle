@@ -25,9 +25,9 @@ subprojects {
     repositories {
         // ModMenu
         maven { url = "https://maven.terraformersmc.com/" }
-        // ShulkerBoxTooltip
+        // ShulkerBoxTooltip, MidnightLib
         maven { url = "https://api.modrinth.com/maven"}
-        // cloth-config (dependecy of ShulkerBoxTooltip)
+        // cloth-config (dependency of ShulkerBoxTooltip)
         maven { url = "https://maven.shedaniel.me/" }
     }
 
@@ -45,7 +45,7 @@ subprojects {
         it.options.release = Integer.valueOf(java_version)
     }
 
-    // Configure Maven publishing
+    // configure Maven publishing
     /*publishing {
         publications {
             mavenJava(MavenPublication) {

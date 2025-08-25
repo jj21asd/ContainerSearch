@@ -34,10 +34,11 @@ configurations {
 
 dependencies {
     forge "net.minecraftforge:forge:${forge_version}"
+    modImplementation include("maven.modrinth:midnightlib:${midnight_lib_version_forge}")
 
     // ShulkerBoxTooltip (useful for testing with shulkerboxes)
-    modRuntimeOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version_forge}"
-    modRuntimeOnly "maven.modrinth:shulkerboxtooltip:${shulkerboxtooltip_version_fabric}"
+    modRuntimeOnly "maven.modrinth:shulkerboxtooltip:${shulkerboxtooltip_version_forge}"
+    modRuntimeOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
 
     common(project(path: ':common', configuration: 'namedElements')) { transitive = false }
     shadowBundle project(path: ':common', configuration: 'transformProductionForge')

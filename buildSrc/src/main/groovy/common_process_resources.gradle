@@ -14,20 +14,21 @@ processResources {
             'minecraft_version_forge'   : minecraft_version_forge,
             'fabric_loader_version'     : fabric_loader_version,
             'fabric_api_version'        : fabric_api_version,
-            "forge_loader_version"      : forge_loader_version,
-            "forge_version"             : forge_version,
+            'forge_loader_version'      : forge_loader_version,
+            'forge_version'             : forge_version,
     ]
-
-    inputs.properties(props)
+    inputs.properties props
 
     var propsJson = props.collectEntries {
         key, value -> [(key): value instanceof String ? value.replace("\n", "\\\\n") : value]
     }
 
     filesMatching(['META-INF/mods.toml']) {
+        logger.log(LogLevel.LIFECYCLE, "Expanded properties for " + it.path)
         expand props
     }
-    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json']) {
+    filesMatching(['pack.mcmeta', 'fabric.mod.json', '*.mixins.json', "assets/${mod_id}/lang/*.json".toString()]) {
+        logger.log(LogLevel.LIFECYCLE, "Expanded properties for " + it.path)
         expand propsJson
     }
 }

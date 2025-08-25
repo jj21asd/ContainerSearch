@@ -1,0 +1,15 @@
+{
+  "${mod_id}.midnightconfig.title": "${mod_name} Config",
+  "${mod_id}.midnightconfig.userInterfaceHeader": "User Interface",
+  "${mod_id}.midnightconfig.behaviorHeader": "Search Behavior",
+  "${mod_id}.midnightconfig.panelAlignment": "Alignment",
+  "${mod_id}.midnightconfig.enum.Alignment.MENU": "Menu",
+  "${mod_id}.midnightconfig.enum.Alignment.TOP_OF_SCREEN": "Top of Screen",
+  "${mod_id}.midnightconfig.panelOffsetX": "Horizontal Offset",
+  "${mod_id}.midnightconfig.panelOffsetY": "Vertical Offset",
+  "${mod_id}.midnightconfig.searchBarWidth": "Search Bar Width",
+  "${mod_id}.midnightconfig.searchInsideShulkers": "Include Shulker Boxes",
+  "${mod_id}.midnightconfig.interpretNumbersAsLevels": "Interpret Numbers as Levels",
+  "${mod_id}.midnightconfig.searchInsideShulkers.tooltip": "Whether items inside of shulker boxes should be included in the search",
+  "${mod_id}.midnightconfig.interpretNumbersAsLevels.tooltip": "Whether numbers should be interpreted as a filter for the level of enchantments and potion effects or be treated like regular search keywords"
+}

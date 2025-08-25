@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "${mod_id}",
+  "id": "container_search",
   "version": "${version}",
   "name": "${mod_name}",
   "description": "${description}",
@@ -13,9 +13,8 @@
   "icon": "assets/${mod_id}/icon.png",
   "environment": "*",
   "entrypoints": {
-    "client": [
-      "me.jjblock21.containersearch.fabric.ContainerSearchFabric"
-    ]
+    "client": ["me.jjblock21.containersearch.fabric.EntrypointFabric"],
+    "modmenu": ["me.jjblock21.containersearch.fabric.EntrypointFabric"]
   },
   "mixins": [
     "${mod_id}.mixins.json"
