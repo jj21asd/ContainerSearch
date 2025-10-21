@@ -35,10 +35,16 @@ public class SearchEngine {
     public static boolean matchesItem(Query query, ItemStack stack) {
         if (stack.isEmpty()) return false;
 
-        if (ConfigModel.searchInsideShulkers && isShulkerBox(stack)) {
-            if (matchesContents(query, stack)) return true;
+        if (ConfigModel.searchShulkers && isShulkerBox(stack)) {
+            NbtCompound nbt = BlockItem.getBlockEntityNbt(stack);
+            if (matchesContents(query, nbt)) return true;
         }
-        // TODO: Add support for bundles
+
+        if (ConfigModel.searchBundles && stack.getItem() instanceof BundleItem) {
+            NbtCompound nbt = stack.getOrCreateNbt();
+            if (matchesContents(query, nbt)) return true;
+        }
+
         else if (stack.isOf(Items.ENCHANTED_BOOK)) {
             if (matchesEnchantments(query, stack)) return true;
         }
@@ -56,8 +62,7 @@ public class SearchEngine {
             ((BlockItem)item).getBlock() instanceof ShulkerBoxBlock;
     }
 
-    private static boolean matchesContents(Query query, ItemStack container) {
-        NbtCompound nbt = BlockItem.getBlockEntityNbt(container);
+    private static boolean matchesContents(Query query, NbtCompound nbt) {
         if (nbt != null && nbt.contains("Items")) {
             NbtList items = nbt.getList("Items", NbtList.COMPOUND_TYPE);
 

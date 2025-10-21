@@ -14,7 +14,7 @@
   "environment": "*",
   "entrypoints": {
     "client": ["me.jjblock21.containersearch.fabric.EntrypointFabric"],
-    "modmenu": ["me.jjblock21.containersearch.fabric.EntrypointFabric"]
+    "modmenu": ["me.jjblock21.containersearch.fabric.ModMenuImpl"]
   },
   "mixins": [
     "${mod_id}.mixins.json"

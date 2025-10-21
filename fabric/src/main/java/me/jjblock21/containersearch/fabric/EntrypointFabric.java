@@ -1,18 +1,11 @@
 package me.jjblock21.containersearch.fabric;
 
-import com.terraformersmc.modmenu.api.ConfigScreenFactory;
-import com.terraformersmc.modmenu.api.ModMenuApi;
 import me.jjblock21.containersearch.ContainerSearch;
 import net.fabricmc.api.ClientModInitializer;
-import net.minecraft.client.gui.screen.Screen;
 
-public class EntrypointFabric implements ClientModInitializer, ModMenuApi {
+public class EntrypointFabric implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         ContainerSearch.init();
-    }
-
-    public ConfigScreenFactory<Screen> getModConfigScreenFactory() {
-        return ContainerSearch::getConfigScreen;
     }
 }
