@@ -1,5 +1,6 @@
 package me.jjblock21.containersearch.core;
 
+import me.jjblock21.containersearch.ContainerSearch;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;
@@ -20,6 +21,6 @@ public class SearchBarWidget extends TextFieldWidget {
         int v = focused ? 8 : 0;
         int x = getX() + getWidth() - 10;
         int y = getY() + getHeight() / 2 - 4;
-        context.drawTexture(Constants.WIDGET_SPRITES, x, y, 16, v, 8, 8, 32, 32);
+        context.drawTexture(ContainerSearch.WIDGET_SPRITES, x, y, 16, v, 8, 8, 32, 32);
     }
 }

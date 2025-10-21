@@ -5,7 +5,7 @@ import net.minecraftforge.client.ConfigScreenHandler;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
-@Mod(Constants.MOD_ID)
+@Mod(ContainerSearch.MOD_ID)
 public class EntrypointForge {
     public EntrypointForge(FMLJavaModLoadingContext context) {
         ContainerSearch.init();
