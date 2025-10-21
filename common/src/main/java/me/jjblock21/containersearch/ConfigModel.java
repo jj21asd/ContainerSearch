@@ -2,7 +2,7 @@ package me.jjblock21.containersearch;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 
-public class ModConfig extends MidnightConfig {
+public class ConfigModel extends MidnightConfig {
     @Comment(centered = true) public static Comment userInterfaceHeader;
     @Entry public static Alignment panelAlignment = Alignment.MENU;
     @Entry public static int panelOffsetX = 0;

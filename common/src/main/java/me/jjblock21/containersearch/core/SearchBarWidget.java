@@ -1,6 +1,5 @@
 package me.jjblock21.containersearch.core;
 
-import me.jjblock21.containersearch.Constants;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;

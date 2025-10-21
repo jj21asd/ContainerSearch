@@ -18,7 +18,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(HandledScreen.class)
 public abstract class HandledScreenMixin extends Screen {
     /**
-     * Override this in a super class to enable search functionality for that specific container
+     * Override this in a super class to enable search functionality for that container
      */
     @Unique
     protected SearchProvider container_search$createSearchProvider() {
@@ -48,8 +48,8 @@ public abstract class HandledScreenMixin extends Screen {
     @Inject(method = "keyPressed", at = @At(value = "HEAD"), cancellable = true)
     private void keyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
         if (getFocused() instanceof SearchBarWidget) {
-            // continue to handle escape and navigation keys and forward key events to gui elements,
-            // but prevent the handling of inventory hotkeys like E to close
+            // continue to handle navigation keys as well as forwarding key events to gui elements,
+            // but intercept hotkeys like E to close
             super.keyPressed(keyCode, scanCode, modifiers);
             cir.setReturnValue(true);
         }

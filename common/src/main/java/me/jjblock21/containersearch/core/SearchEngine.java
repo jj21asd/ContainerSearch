@@ -1,6 +1,6 @@
 package me.jjblock21.containersearch.core;
 
-import me.jjblock21.containersearch.ModConfig;
+import me.jjblock21.containersearch.ConfigModel;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,12 +16,29 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Optional;
 
 public class SearchEngine {
+    public static Query preprocessQuery(String text) {
+        String[] tokens = tokenize(text);
+        boolean levelSpecified = false; // this decides how enchantments/potion effects are handled
+        for (String token : tokens) {
+            if (StringUtils.isNumeric(token)) {
+                levelSpecified = true;
+                break;
+            }
+        }
+        return new Query(tokens, levelSpecified);
+    }
+
+    private static String[] tokenize(String text) {
+        return StringUtils.split(text.trim().toLowerCase(), ' ');
+    }
+
     public static boolean matchesItem(Query query, ItemStack stack) {
         if (stack.isEmpty()) return false;
 
-        if (ModConfig.searchInsideShulkers && isShulkerBox(stack)) {
+        if (ConfigModel.searchInsideShulkers && isShulkerBox(stack)) {
             if (matchesContents(query, stack)) return true;
         }
+        // TODO: Add support for bundles
         else if (stack.isOf(Items.ENCHANTED_BOOK)) {
             if (matchesEnchantments(query, stack)) return true;
         }
@@ -82,11 +99,11 @@ public class SearchEngine {
     }
 
     private static boolean matchesSpell(Query query, String name, int level) {
-        if (!ModConfig.interpretNumbersAsLevels) {
+        if (!ConfigModel.interpretNumbersAsLevels) {
             return matchesName(query, name) || matchesLevel(query, level);
         }
 
-        // if only one is specified (potential name/level) search for it only, otherwise search for both
+        // if only one is specified (potential name/level) search for it only, otherwise search for both in combination.
         // this reduces unwanted results when searching for specific enchantments
         if (query.levelSpecified && query.tokens.length == 1) {
             return matchesLevel(query, level);
@@ -114,24 +131,5 @@ public class SearchEngine {
         return false;
     }
 
-    private static String[] tokenize(String text) {
-        return StringUtils.split(text.trim().toLowerCase(), ' ');
-    }
-
-    public record Query(String[] tokens, boolean levelSpecified) {
-        public static Query fromString(String text) {
-                String[] tokens = tokenize(text);
-
-                // used to decide how to handle enchantments/potion effects
-                boolean levelSpecified = false;
-                for (String token : tokens) {
-                    if (StringUtils.isNumeric(token)) {
-                        levelSpecified = true;
-                        break;
-                    }
-                }
-
-                return new Query(tokens, levelSpecified);
-            }
-        }
+    public record Query(String[] tokens, boolean levelSpecified) {}
 }

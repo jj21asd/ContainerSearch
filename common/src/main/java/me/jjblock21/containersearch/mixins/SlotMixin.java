@@ -1,6 +1,5 @@
 package me.jjblock21.containersearch.mixins;
 
-import me.jjblock21.containersearch.Constants;
 import me.jjblock21.containersearch.core.SearchableItem;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.slot.Slot;
