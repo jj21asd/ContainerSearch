@@ -23,7 +23,7 @@ public class SearchProvider {
         this.searchBar = null;
 
         for (Slot slot : screen.getScreenHandler().slots) {
-            ((SearchableItem)slot).container_search$setModifyListener(this::onSearchableItemModified);
+            ((SlotExtension)slot).container_search$setModifyListener(this::onSlotModified);
         }
     }
 
@@ -39,8 +39,7 @@ public class SearchProvider {
             panelY += 2;
         }
 
-        searchBar = new SearchBarWidget(MinecraftClient.getInstance().textRenderer, panelX, panelY + 1,
-            ConfigModel.searchBarWidth, panelHeight - 2, Text.empty());
+        searchBar = new SearchBarWidget(panelX, panelY + 1, ConfigModel.searchBarWidth, panelHeight - 2, Text.empty());
         searchBar.setChangedListener(this::onSearchTextChanged);
 
         // keep this here in case I ever want to add it back
@@ -56,7 +55,7 @@ public class SearchProvider {
         performSearch(text);
     }
 
-    private void onSearchableItemModified(Inventory inventory) {
+    private void onSlotModified(Inventory inventory) {
         if (inventory == targetInventory && searchBar != null) {
             performSearch(searchBar.getText());
         }
@@ -73,13 +72,13 @@ public class SearchProvider {
             if (slot.inventory != targetInventory) continue;
 
             boolean matching = SearchEngine.matchesItem(query, slot.getStack());
-            ((SearchableItem)slot).container_search$setMatching(matching);
+            ((SlotExtension)slot).container_search$setMatching(matching);
         }
     }
 
     private void restoreInventory() {
         for (Slot slot : screen.getScreenHandler().slots) {
-            ((SearchableItem)slot).container_search$setMatching(true);
+            ((SlotExtension)slot).container_search$setMatching(true);
         }
     }
 }

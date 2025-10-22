@@ -1,14 +1,15 @@
 package me.jjblock21.containersearch.core;
 
 import me.jjblock21.containersearch.ContainerSearch;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;
 
 public class SearchBarWidget extends TextFieldWidget {
-    public SearchBarWidget(TextRenderer textRenderer, int x, int y, int width, int height, Text text) {
-        super(textRenderer, x, y, width, height, text);
+    public SearchBarWidget(int x, int y, int width, int height, Text text) {
+        super(MinecraftClient.getInstance().textRenderer, x, y, width, height, text);
     }
 
     @Override
