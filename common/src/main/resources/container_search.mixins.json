@@ -4,11 +4,10 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
-    "HandledScreenMixin",
     "SlotMixin",
+    "HandledScreenMixin",
     "containers.GenericContainerScreenMixin",
-    "containers.ShukerBoxScreenMixin",
-    "gui.EntryListWidgetMixin"
+    "containers.ShukerBoxScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1

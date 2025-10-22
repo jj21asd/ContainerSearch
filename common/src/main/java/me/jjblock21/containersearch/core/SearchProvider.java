@@ -2,7 +2,6 @@ package me.jjblock21.containersearch.core;
 
 import joptsimple.internal.Strings;
 import me.jjblock21.containersearch.ConfigModel;
-import me.jjblock21.containersearch.extensions.SlotExtension;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
@@ -24,7 +23,7 @@ public class SearchProvider {
         this.searchBar = null;
 
         for (Slot slot : screen.getScreenHandler().slots) {
-            ((SlotExtension)slot).container_search$setModifyListener(this::onSearchableItemModified);
+            ((SearchableItem)slot).container_search$setModifyListener(this::onSearchableItemModified);
         }
     }
 
@@ -74,13 +73,13 @@ public class SearchProvider {
             if (slot.inventory != targetInventory) continue;
 
             boolean matching = SearchEngine.matchesItem(query, slot.getStack());
-            ((SlotExtension)slot).container_search$setMatching(matching);
+            ((SearchableItem)slot).container_search$setMatching(matching);
         }
     }
 
     private void restoreInventory() {
         for (Slot slot : screen.getScreenHandler().slots) {
-            ((SlotExtension)slot).container_search$setMatching(true);
+            ((SearchableItem)slot).container_search$setMatching(true);
         }
     }
 }
