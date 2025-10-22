@@ -39,19 +39,24 @@ public abstract class HandledScreenMixin extends Screen {
         }
     }
 
+    /**
+     * The name is misleading, this is called every time you interact with a slot (doesn't have to be clicking)
+     */
     @Inject(method = "onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V",
         at = @At(value = "TAIL"))
     private void onMouseClick(Slot slot, int slotId, int button, SlotActionType actionType, CallbackInfo ci) {
-        setFocused(null);
+        // ONLY DO THIS TO THE SEARCH BAR!
+        // some gui elements break when you do this to them
+        if (getFocused() instanceof SearchBarWidget) {
+            setFocused(null);
+        }
     }
 
     @Inject(method = "keyPressed", at = @At(value = "HEAD"), cancellable = true)
     private void keyPressed(int keyCode, int scanCode, int modifiers, CallbackInfoReturnable<Boolean> cir) {
         if (getFocused() instanceof SearchBarWidget) {
-            // continue to handle navigation keys as well as forwarding key events to gui elements,
-            // but intercept hotkeys like E to close
-            super.keyPressed(keyCode, scanCode, modifiers);
-            cir.setReturnValue(true);
+            // skip checks for E to close and number keys to move items into your hotbar
+            cir.setReturnValue(super.keyPressed(keyCode, scanCode, modifiers));
         }
     }
 

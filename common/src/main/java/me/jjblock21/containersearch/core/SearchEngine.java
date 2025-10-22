@@ -16,16 +16,16 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Optional;
 
 public class SearchEngine {
-    public static Query preprocessQuery(String text) {
-        String[] tokens = tokenize(text);
-        boolean levelSpecified = false; // this decides how enchantments/potion effects are handled
+    public static Query preprocessQuery(String queryText) {
+        String[] tokens = tokenize(queryText);
+        boolean containsNumbers = false;
         for (String token : tokens) {
             if (StringUtils.isNumeric(token)) {
-                levelSpecified = true;
+                containsNumbers = true;
                 break;
             }
         }
-        return new Query(tokens, levelSpecified);
+        return new Query(tokens, containsNumbers);
     }
 
     private static String[] tokenize(String text) {
@@ -52,8 +52,15 @@ public class SearchEngine {
             if (matchesEffects(query, stack)) return true;
         }
 
-        String name = stack.getName().getString();
-        return matchesName(query, name);
+        boolean matches = false;
+        matches |= matchesName(query, stack.getName().getString());
+
+        // also search for original name if the item was renamed
+        if (stack.hasCustomName()) {
+            matches |= matchesName(query, stack.getItem().getName().getString());
+        }
+
+        return matches;
     }
 
     private static boolean isShulkerBox(ItemStack stack) {
@@ -110,9 +117,9 @@ public class SearchEngine {
 
         // if only one is specified (potential name/level) search for it only, otherwise search for both in combination.
         // this reduces unwanted results when searching for specific enchantments
-        if (query.levelSpecified && query.tokens.length == 1) {
+        if (query.containsNumbers && query.tokens.length == 1) {
             return matchesLevel(query, level);
-        } else if (query.levelSpecified) {
+        } else if (query.containsNumbers) {
             return matchesName(query, name) && matchesLevel(query, level);
         } else {
             return matchesName(query, name);
@@ -136,5 +143,5 @@ public class SearchEngine {
         return false;
     }
 
-    public record Query(String[] tokens, boolean levelSpecified) {}
+    public record Query(String[] tokens, boolean containsNumbers) {}
 }
