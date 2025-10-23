@@ -7,7 +7,7 @@ import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 
 /**
- * Implements SearchAddon for Shulker Boxes.
+ * Implements search functionality for Shulkers
  */
 @Mixin(ShulkerBoxScreen.class)
 public class ShukerBoxScreenMixin extends HandledScreenMixin {

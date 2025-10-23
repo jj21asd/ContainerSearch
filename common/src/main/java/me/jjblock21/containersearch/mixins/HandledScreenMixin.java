@@ -39,9 +39,8 @@ public abstract class HandledScreenMixin extends Screen {
         }
     }
 
-    /**
-     * The name is misleading, this is called every time you interact with a slot (doesn't have to be clicking)
-     */
+    // the method name is misleading,
+    // this is called every time you interact with a slot (doesn't have to be clicking)
     @Inject(method = "onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V",
         at = @At(value = "TAIL"))
     private void onMouseClick(Slot slot, int slotId, int button, SlotActionType actionType, CallbackInfo ci) {

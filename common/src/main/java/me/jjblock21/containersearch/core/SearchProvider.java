@@ -2,7 +2,6 @@ package me.jjblock21.containersearch.core;
 
 import joptsimple.internal.Strings;
 import me.jjblock21.containersearch.ConfigModel;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.inventory.Inventory;
@@ -67,11 +66,11 @@ public class SearchProvider {
             return;
         }
 
-        SearchEngine.Query query = SearchEngine.preprocessQuery(text);
+        SearchHelper.Query query = SearchHelper.preprocessQuery(text);
         for (Slot slot : screen.getScreenHandler().slots) {
             if (slot.inventory != targetInventory) continue;
 
-            boolean matching = SearchEngine.matchesItem(query, slot.getStack());
+            boolean matching = SearchHelper.matchesItem(query, slot.getStack());
             ((SlotExtension)slot).container_search$setMatching(matching);
         }
     }

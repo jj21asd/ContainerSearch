@@ -7,7 +7,7 @@ import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 
 /**
- * Implements SearchAddon for Chests, Barrels, Enderchests, Chest Minecarts and Chest Boats.
+ * Implements search functionality for chests, barrels, enderchests, chest minecarts & boats
  */
 @Mixin(GenericContainerScreen.class)
 public class GenericContainerScreenMixin extends HandledScreenMixin {

@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 import org.apache.commons.lang3.StringUtils;
 import java.util.Optional;
 
-public class SearchEngine {
+public class SearchHelper {
     public static Query preprocessQuery(String queryText) {
         String[] tokens = tokenize(queryText);
         boolean containsNumbers = false;
@@ -39,12 +39,11 @@ public class SearchEngine {
             NbtCompound nbt = BlockItem.getBlockEntityNbt(stack);
             if (matchesContents(query, nbt)) return true;
         }
-
-        if (ConfigModel.searchBundles && stack.getItem() instanceof BundleItem) {
+        // TODO: Actually test if this works
+        else if (ConfigModel.searchBundles && stack.getItem() instanceof BundleItem) {
             NbtCompound nbt = stack.getOrCreateNbt();
             if (matchesContents(query, nbt)) return true;
         }
-
         else if (stack.isOf(Items.ENCHANTED_BOOK)) {
             if (matchesEnchantments(query, stack)) return true;
         }
@@ -52,15 +51,14 @@ public class SearchEngine {
             if (matchesEffects(query, stack)) return true;
         }
 
-        boolean matches = false;
-        matches |= matchesName(query, stack.getName().getString());
-
-        // also search for original name if the item was renamed
         if (stack.hasCustomName()) {
-            matches |= matchesName(query, stack.getItem().getName().getString());
+            // try the original name if the item was renamed
+            if (matchesName(query, stack.getItem().getName().getString())) {
+                return true;
+            }
         }
 
-        return matches;
+        return matchesName(query, stack.getName().getString());
     }
 
     private static boolean isShulkerBox(ItemStack stack) {
