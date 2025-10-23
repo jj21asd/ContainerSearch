@@ -2,7 +2,6 @@ package me.jjblock21.containersearch.core;
 
 import me.jjblock21.containersearch.ContainerSearch;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.text.Text;

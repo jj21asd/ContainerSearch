@@ -1,4 +1,0 @@
-accessWidener v2 named
-accessible field net/minecraft/client/gui/screen/ingame/HandledScreen x I
-accessible field net/minecraft/client/gui/screen/ingame/HandledScreen y I
-accessible field net/minecraft/screen/ShulkerBoxScreenHandler inventory Lnet/minecraft/inventory/Inventory;

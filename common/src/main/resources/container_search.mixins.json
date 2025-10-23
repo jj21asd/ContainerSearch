@@ -4,12 +4,16 @@
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
   "client": [
-    "SlotMixin",
+    "HandledScreenAccessor",
     "HandledScreenMixin",
+    "SlotMixin",
     "containers.GenericContainerScreenMixin",
     "containers.ShukerBoxScreenMixin"
   ],
   "injectors": {
     "defaultRequire": 1
-  }
+  },
+  "mixins": [
+    "containers.ShulkerBoxScreenHandlerAccessor"
+  ]
 }

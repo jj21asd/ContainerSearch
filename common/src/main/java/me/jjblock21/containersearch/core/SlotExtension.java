@@ -1,7 +1,6 @@
 package me.jjblock21.containersearch.core;
 
 import net.minecraft.inventory.Inventory;
-
 import java.util.function.Consumer;
 
 public interface SlotExtension {

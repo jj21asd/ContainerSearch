@@ -14,7 +14,8 @@ public class ShukerBoxScreenMixin extends HandledScreenMixin {
     @Override
     protected SearchProvider container_search$createSearchProvider() {
         ShulkerBoxScreen screen = (ShulkerBoxScreen)(Object)this;
-        return new SearchProvider(screen, screen.getScreenHandler().inventory);
+        ShulkerBoxScreenHandlerAccessor accessor = (ShulkerBoxScreenHandlerAccessor)screen.getScreenHandler();
+        return new SearchProvider(screen, accessor.getInventory());
     }
 
     // dummy constructor

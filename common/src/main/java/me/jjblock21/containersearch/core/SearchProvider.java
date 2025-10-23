@@ -2,6 +2,7 @@ package me.jjblock21.containersearch.core;
 
 import joptsimple.internal.Strings;
 import me.jjblock21.containersearch.ConfigModel;
+import me.jjblock21.containersearch.mixins.HandledScreenAccessor;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.ClickableWidget;
 import net.minecraft.inventory.Inventory;
@@ -33,7 +34,8 @@ public class SearchProvider {
         int panelX = ConfigModel.panelOffsetX + (screen.width - panelWidth) / 2;
         int panelY = ConfigModel.panelOffsetY;
         if (ConfigModel.panelAlignment == ConfigModel.Alignment.MENU) {
-            panelY += screen.y - panelHeight - 2;
+            HandledScreenAccessor accessor = ((HandledScreenAccessor)screen);
+            panelY += accessor.getY() - panelHeight - 2;
         } else {
             panelY += 2;
         }

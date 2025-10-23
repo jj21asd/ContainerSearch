@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "me.jjblock21.containersearch.fabric.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "minVersion": "0.8",
+  "client": [
+    "containers.ReinforcedStorageScreenMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

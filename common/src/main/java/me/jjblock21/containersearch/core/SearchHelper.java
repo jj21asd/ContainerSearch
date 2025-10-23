@@ -57,7 +57,6 @@ public class SearchHelper {
                 return true;
             }
         }
-
         return matchesName(query, stack.getName().getString());
     }
 

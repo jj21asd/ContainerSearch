@@ -8,10 +8,6 @@ architectury {
     fabric()
 }
 
-loom {
-   accessWidenerPath = project(":common").loom.accessWidenerPath
-}
-
 configurations {
     common {
         canBeResolved = true
@@ -34,6 +30,12 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${fabric_api_version}"
     modImplementation "com.terraformersmc:modmenu:${project.modmenu_version}"
     modImplementation include("maven.modrinth:midnightlib:${midnight_lib_version_fabric}")
+
+    // Compatible mods
+    modImplementation "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
+    modRuntimeOnly "maven.modrinth:reinforced-chests:${reinf_chests_version}"
+    modRuntimeOnly "maven.modrinth:reinforced-shulker-boxes:${reinf_shulker_boxes_version}"
+    modRuntimeOnly "maven.modrinth:reinforced-barrels:${reinf_barrels_version}"
 
     // ShulkerBoxTooltip (useful for testing with shulkerboxes)
     modRuntimeOnly "maven.modrinth:shulkerboxtooltip:${shulkerboxtooltip_version_fabric}"
