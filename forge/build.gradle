@@ -36,12 +36,6 @@ dependencies {
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation include("maven.modrinth:midnightlib:${midnight_lib_version_forge}")
 
-    // Compatible mods
-    modCompileOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
-    if (load_compatible_mods.toBoolean()) {
-        modRuntimeOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
-    }
-
     // ShulkerBoxTooltip (useful for testing with shulkerboxes)
     modRuntimeOnly "maven.modrinth:shulkerboxtooltip:${shulkerboxtooltip_version_forge}"
     modRuntimeOnly "me.shedaniel.cloth:cloth-config-forge:${cloth_config_version}"
