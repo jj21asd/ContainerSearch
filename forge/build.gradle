@@ -38,7 +38,7 @@ dependencies {
 
     // Compatible mods
     modCompileOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
-    if (load_compatible_mods) {
+    if (load_compatible_mods.toBoolean()) {
         modRuntimeOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
     }
 
