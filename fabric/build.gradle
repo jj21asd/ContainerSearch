@@ -35,7 +35,7 @@ dependencies {
     modCompileOnly "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
     modCompileOnly "maven.modrinth:mythicmetals-decorations:${mythic_metals_dec_version}"
 
-    if (load_compatible_mods) {
+    if (load_compatible_mods.toBoolean()) {
         modRuntimeOnly "maven.modrinth:reinforced-chests:${reinf_chests_version}"
         modRuntimeOnly "maven.modrinth:reinforced-shulker-boxes:${reinf_shulker_boxes_version}"
         modRuntimeOnly "maven.modrinth:reinforced-barrels:${reinf_barrels_version}"
