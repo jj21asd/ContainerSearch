@@ -6,7 +6,6 @@ plugins {
 loom {
     forge {
         mixinConfig "${mod_id}.mixins.json"
-        mixinConfig "${mod_id}.forge.mixins.json"
     }
 }
 
@@ -37,9 +36,9 @@ dependencies {
     forge "net.minecraftforge:forge:${forge_version}"
     modImplementation include("maven.modrinth:midnightlib:${midnight_lib_version_forge}")
 
-    // Compatible mods#
+    // Compatible mods
     modCompileOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
-    if (load_compatible_mods.toBoolean()) {
+    if (load_compatible_mods) {
         modRuntimeOnly "curse.maven:iron-chests-228756:${iron_chests_file_id}"
     }
 

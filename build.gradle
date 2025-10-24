@@ -27,8 +27,6 @@ subprojects {
         maven { url = "https://maven.terraformersmc.com/" }
         // MidnightLib and other mods
         maven { url = "https://api.modrinth.com/maven"}
-        // CurseForge-only mods
-        maven { url = "https://cursemaven.com" }
 
         // cloth-config (dependency of ShulkerBoxTooltip)
         maven { url = "https://maven.shedaniel.me/" }
