@@ -17,10 +17,7 @@ public class ContainerSearchMixinPlugin implements IMixinConfigPlugin {
         () -> PlatformFunctions.isModLoaded("reinfcore"),
 
         "me.jjblock21.containersearch.fabric.mixins.containers.MythicChestScreenMixin",
-        () -> PlatformFunctions.isModLoaded("mythicmetals_decorations"),
-
-        "me.jjblock21.containersearch.forge.mixins.containers.IronChestScreenMixin",
-        () -> PlatformFunctions.isModLoaded("ironchest")
+        () -> PlatformFunctions.isModLoaded("mythicmetals_decorations")
     );
 
     @Override
