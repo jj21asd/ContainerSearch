@@ -33,11 +33,21 @@ dependencies {
 
     // Compatible mods
     modImplementation "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
-    modRuntimeOnly "maven.modrinth:reinforced-chests:${reinf_chests_version}"
-    modRuntimeOnly "maven.modrinth:reinforced-shulker-boxes:${reinf_shulker_boxes_version}"
-    modRuntimeOnly "maven.modrinth:reinforced-barrels:${reinf_barrels_version}"
+    modImplementation "maven.modrinth:mythicmetals-decorations:${mythic_metals_dec_version}"
 
-    // ShulkerBoxTooltip (useful for testing with shulkerboxes)
+    if (load_compatible_mods) {
+        modRuntimeOnly "maven.modrinth:reinforced-chests:${reinf_chests_version}"
+        modRuntimeOnly "maven.modrinth:reinforced-shulker-boxes:${reinf_shulker_boxes_version}"
+        modRuntimeOnly "maven.modrinth:reinforced-barrels:${reinf_barrels_version}"
+
+        // All bundled mods have to be extracted from META-INF/jars to run/mods manually
+        // (except owo-sentinel) because there are to many to add every single one through gradle
+        modRuntimeOnly "maven.modrinth:mythicmetals:${mythic_metals_version}"
+        modRuntimeOnly "maven.modrinth:alloy-forgery:${alloy_forgery_version}"
+        modRuntimeOnly "maven.modrinth:owo-lib:${owo_lib_version}"
+    }
+
+    // ShulkerBoxTooltip (useful for testing with Shulkers)
     modRuntimeOnly "maven.modrinth:shulkerboxtooltip:${shulkerboxtooltip_version_fabric}"
     modRuntimeOnly "me.shedaniel.cloth:cloth-config-fabric:${cloth_config_version}"
 

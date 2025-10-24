@@ -25,12 +25,15 @@ subprojects {
     repositories {
         // ModMenu
         maven { url = "https://maven.terraformersmc.com/" }
-        // ShulkerBoxTooltip, MidnightLib, Reinforced Series
+        // MidnightLib and other mods
         maven { url = "https://api.modrinth.com/maven"}
+
         // cloth-config (dependency of ShulkerBoxTooltip)
         maven { url = "https://maven.shedaniel.me/" }
         // Reinforced Core
         maven { url = "https://raw.githubusercontent.com/Aton-Kish/mcmod/maven" }
+        // Cardinal Components API
+        maven { url = "https://maven.ladysnake.org/releases"}
     }
 
     dependencies {
