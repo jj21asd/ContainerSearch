@@ -35,9 +35,9 @@ public class SearchProvider {
         int panelY = ConfigModel.panelOffsetY;
         if (ConfigModel.panelAlignment == ConfigModel.Alignment.MENU) {
             HandledScreenAccessor accessor = ((HandledScreenAccessor)screen);
-            panelY += accessor.getY() - panelHeight - 2;
+            panelY += Math.max(accessor.getY() - panelHeight - 2, 4);
         } else {
-            panelY += 2;
+            panelY += 4;
         }
 
         searchBar = new SearchBarWidget(panelX, panelY + 1, ConfigModel.searchBarWidth, panelHeight - 2, Text.empty());
