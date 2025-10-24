@@ -1,6 +1,7 @@
 package me.jjblock21.containersearch;
 
 import eu.midnightdust.lib.config.MidnightConfig;
+import eu.midnightdust.lib.util.PlatformFunctions;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.util.Identifier;
 import org.slf4j.LoggerFactory;
@@ -14,8 +15,8 @@ public class ContainerSearch {
         try {
             MidnightConfig.init(MOD_ID, ConfigModel.class);
         } catch (Exception e) {
-            LoggerFactory.getLogger(MOD_NAME).error("Failed to load config, consider deleting" +
-                " {minecraft_folder}/config/{}.json to restore the default settings", MOD_ID);
+            LoggerFactory.getLogger(MOD_NAME).error("Failed to load config, consider deleting " +
+                "{}/{}.json to restore default settings", PlatformFunctions.getConfigDirectory(), MOD_ID);
             throw e;
         }
     }

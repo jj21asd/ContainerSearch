@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.SoftOverride;
 /**
  * Implements search functionality for all Mythic Metals Decorations containers
  */
-@Pseudo
 @Mixin(MythicChestScreen.class)
 public class MythicChestScreenMixin {
     @SoftOverride

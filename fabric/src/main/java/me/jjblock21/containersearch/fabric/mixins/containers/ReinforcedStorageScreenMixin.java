@@ -9,7 +9,6 @@ import org.spongepowered.asm.mixin.SoftOverride;
 /**
  * Implements search functionality for all containers from the Reinforced series of mods
  */
-@Pseudo
 @Mixin(value = ReinforcedStorageScreen.class)
 public class ReinforcedStorageScreenMixin {
     @SoftOverride
