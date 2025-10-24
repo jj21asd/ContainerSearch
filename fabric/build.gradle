@@ -32,17 +32,19 @@ dependencies {
     modImplementation include("maven.modrinth:midnightlib:${midnight_lib_version_fabric}")
 
     // Compatible mods
-    modImplementation "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
-    modImplementation "maven.modrinth:mythicmetals-decorations:${mythic_metals_dec_version}"
+    modCompileOnly "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
+    modCompileOnly "maven.modrinth:mythicmetals-decorations:${mythic_metals_dec_version}"
 
     if (load_compatible_mods) {
         modRuntimeOnly "maven.modrinth:reinforced-chests:${reinf_chests_version}"
         modRuntimeOnly "maven.modrinth:reinforced-shulker-boxes:${reinf_shulker_boxes_version}"
         modRuntimeOnly "maven.modrinth:reinforced-barrels:${reinf_barrels_version}"
+        modRuntimeOnly "atonkish.reinfcore:reinforced-core:${reinf_core_version}"
 
         // All bundled mods have to be extracted from META-INF/jars to run/mods manually
         // (except owo-sentinel) because there are to many to add every single one through Gradle
         modRuntimeOnly "maven.modrinth:mythicmetals:${mythic_metals_version}"
+        modRuntimeOnly "maven.modrinth:mythicmetals-decorations:${mythic_metals_dec_version}"
         modRuntimeOnly "maven.modrinth:alloy-forgery:${alloy_forgery_version}"
         modRuntimeOnly "maven.modrinth:owo-lib:${owo_lib_version}"
     }

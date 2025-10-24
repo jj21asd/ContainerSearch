@@ -39,7 +39,6 @@ public class SearchHelper {
             NbtCompound nbt = BlockItem.getBlockEntityNbt(stack);
             if (matchesContents(query, nbt)) return true;
         }
-        // TODO: Actually test if this works
         else if (ConfigModel.searchBundles && stack.getItem() instanceof BundleItem) {
             NbtCompound nbt = stack.getOrCreateNbt();
             if (matchesContents(query, nbt)) return true;

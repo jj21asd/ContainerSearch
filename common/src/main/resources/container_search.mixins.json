@@ -8,12 +8,10 @@
     "HandledScreenMixin",
     "SlotMixin",
     "containers.GenericContainerScreenMixin",
-    "containers.ShukerBoxScreenMixin"
+    "containers.ShukerBoxScreenMixin",
+    "containers.ShulkerBoxScreenHandlerAccessor"
   ],
   "injectors": {
     "defaultRequire": 1
-  },
-  "mixins": [
-    "containers.ShulkerBoxScreenHandlerAccessor"
-  ]
+  }
 }
