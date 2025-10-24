@@ -16,7 +16,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.Optional;
 
 public class SearchHelper {
-    public static Query preprocessQuery(String queryText) {
+    public static Query parseQuery(String queryText) {
         String[] tokens = tokenize(queryText);
         boolean containsNumbers = false;
         for (String token : tokens) {

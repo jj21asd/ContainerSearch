@@ -33,8 +33,9 @@ public class SearchProvider {
 
         int panelX = ConfigModel.panelOffsetX + (screen.width - panelWidth) / 2;
         int panelY = ConfigModel.panelOffsetY;
+
         if (ConfigModel.panelAlignment == ConfigModel.Alignment.MENU) {
-            HandledScreenAccessor accessor = ((HandledScreenAccessor)screen);
+            HandledScreenAccessor accessor = (HandledScreenAccessor)screen;
             panelY += Math.max(accessor.getY() - panelHeight - 2, 4);
         } else {
             panelY += 4;
@@ -68,12 +69,12 @@ public class SearchProvider {
             return;
         }
 
-        SearchHelper.Query query = SearchHelper.preprocessQuery(text);
+        SearchHelper.Query query = SearchHelper.parseQuery(text);
         for (Slot slot : screen.getScreenHandler().slots) {
-            if (slot.inventory != targetInventory) continue;
-
-            boolean matching = SearchHelper.matchesItem(query, slot.getStack());
-            ((SlotExtension)slot).container_search$setMatching(matching);
+            if (slot.inventory == targetInventory) {
+                boolean matching = SearchHelper.matchesItem(query, slot.getStack());
+                ((SlotExtension) slot).container_search$setMatching(matching);
+            }
         }
     }
 
