@@ -1,15 +1,16 @@
 {
   "${mod_id}.midnightconfig.title": "${mod_name} Config",
-  "${mod_id}.midnightconfig.guiHeader": "GUI",
   "${mod_id}.midnightconfig.behaviorHeader": "Search Behavior",
-  "${mod_id}.midnightconfig.panelAlignment": "Align To",
-  "${mod_id}.midnightconfig.enum.Alignment.MENU": "Menu",
-  "${mod_id}.midnightconfig.enum.Alignment.TOP_OF_SCREEN": "Top of Screen",
-  "${mod_id}.midnightconfig.panelOffsetX": "Horizontal Offset",
-  "${mod_id}.midnightconfig.panelOffsetY": "Vertical Offset",
-  "${mod_id}.midnightconfig.searchBarWidth": "Search Bar Width",
+  "${mod_id}.midnightconfig.guiHeader": "GUI",
   "${mod_id}.midnightconfig.searchShulkers": "Open Shulker Boxes",
-  "${mod_id}.midnightconfig.searchBundles": "Open Bundles",
-  "${mod_id}.midnightconfig.interpretNumbersAsLevels": "Filter by Enchantment Level",
-  "${mod_id}.midnightconfig.interpretNumbersAsLevels.tooltip": "Whether a combination of words and numbers should be interpreted as specific levels of enchantments and potion effects.\nIf disabled, they will be treated like regular keywords instead."
+  "${mod_id}.midnightconfig.searchBundles": "Open bundles",
+  "${mod_id}.midnightconfig.interpretNumbersAsLevels": "Filter by enchantment level",
+  "${mod_id}.midnightconfig.interpretNumbersAsLevels.tooltip": "Whether a combination of words and numbers should be interpreted as specific levels of enchantments and potion effects.\nIf disabled, they will be treated like regular keywords instead.",
+  "${mod_id}.midnightconfig.minSlotCount": "Minimum slot count",
+  "${mod_id}.midnightconfig.panelAlignment": "Align to",
+  "${mod_id}.midnightconfig.enum.Alignment.MENU": "Menu",
+  "${mod_id}.midnightconfig.enum.Alignment.TOP_OF_SCREEN": "Top of screen",
+  "${mod_id}.midnightconfig.panelOffsetX": "Horizontal offset",
+  "${mod_id}.midnightconfig.panelOffsetY": "Vertical offset",
+  "${mod_id}.midnightconfig.searchBarWidth": "Search bar width"
 }

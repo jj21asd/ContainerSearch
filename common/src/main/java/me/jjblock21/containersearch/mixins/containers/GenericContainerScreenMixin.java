@@ -1,9 +1,7 @@
 package me.jjblock21.containersearch.mixins.containers;
 
-import me.jjblock21.containersearch.mixins.HandledScreenMixin;
 import net.minecraft.client.gui.screen.ingame.GenericContainerScreen;
 import net.minecraft.inventory.Inventory;
-import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.SoftOverride;
 

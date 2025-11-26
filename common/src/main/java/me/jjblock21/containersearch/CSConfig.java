@@ -7,6 +7,7 @@ public class CSConfig extends MidnightConfig {
     @Entry public static boolean searchShulkers = true;
     @Entry public static boolean searchBundles = true;
     @Entry public static boolean interpretNumbersAsLevels = true;
+    @Entry(min = 0) public static int minSlotCount = 27;
 
     @Comment(centered = true) public static Comment guiHeader;
     @Entry public static Alignment panelAlignment = Alignment.MENU;

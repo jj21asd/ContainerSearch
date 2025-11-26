@@ -1,5 +1,6 @@
 package me.jjblock21.containersearch.mixins;
 
+import me.jjblock21.containersearch.CSConfig;
 import me.jjblock21.containersearch.core.SearchManager;
 import me.jjblock21.containersearch.core.SearchBarWidget;
 import net.minecraft.client.gui.screen.Screen;
@@ -34,10 +35,10 @@ public abstract class HandledScreenMixin extends Screen {
     @Inject(method="<init>", at = @At("TAIL"))
     private void init(ScreenHandler handler, PlayerInventory inventory, Text title, CallbackInfo ci) {
         Inventory inv = container_search$getInventoryToSearch();
-        if (inv != null) {
-            HandledScreen<?> screen = (HandledScreen<?>)(Object)this;
-            container_search$searchManager = new SearchManager(screen, inventory);
-        }
+        if (inv == null || inv.size() < CSConfig.minSlotCount) return;
+
+        HandledScreen<?> screen = (HandledScreen<?>)(Object)this;
+        container_search$searchManager = new SearchManager(screen, inventory);
     }
 
     @Inject(method = "init", at = @At("TAIL"))
