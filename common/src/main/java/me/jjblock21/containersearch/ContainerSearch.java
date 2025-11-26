@@ -13,11 +13,10 @@ public class ContainerSearch {
 
 	public static void init() {
         try {
-            MidnightConfig.init(MOD_ID, ConfigModel.class);
+            MidnightConfig.init(MOD_ID, CSConfig.class);
         } catch (Exception e) {
             LoggerFactory.getLogger(MOD_NAME).error("Failed to load config, consider deleting " +
                 "{}/{}.json to restore default settings", PlatformFunctions.getConfigDirectory(), MOD_ID);
-            throw e;
         }
     }
 

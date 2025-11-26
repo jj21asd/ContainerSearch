@@ -3,13 +3,13 @@
   "package": "me.jjblock21.containersearch.mixins",
   "compatibilityLevel": "JAVA_17",
   "minVersion": "0.8",
-  "plugin": "me.jjblock21.containersearch.ContainerSearchMixinPlugin",
+  "plugin": "me.jjblock21.containersearch.CSMixinConfigPlugin",
   "client": [
     "HandledScreenAccessor",
     "HandledScreenMixin",
     "SlotMixin",
     "containers.GenericContainerScreenMixin",
-    "containers.ShukerBoxScreenMixin",
+    "containers.ShulkerBoxScreenMixin",
     "containers.ShulkerBoxScreenHandlerAccessor"
   ],
   "injectors": {

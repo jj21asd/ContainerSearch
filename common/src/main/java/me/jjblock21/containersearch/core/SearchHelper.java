@@ -1,6 +1,6 @@
 package me.jjblock21.containersearch.core;
 
-import me.jjblock21.containersearch.ConfigModel;
+import me.jjblock21.containersearch.CSConfig;
 import net.minecraft.block.ShulkerBoxBlock;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -35,11 +35,11 @@ public class SearchHelper {
     public static boolean matchesItem(Query query, ItemStack stack) {
         if (stack.isEmpty()) return false;
 
-        if (ConfigModel.searchShulkers && isShulkerBox(stack)) {
+        if (CSConfig.searchShulkers && isShulkerBox(stack)) {
             NbtCompound nbt = BlockItem.getBlockEntityNbt(stack);
             if (matchesContents(query, nbt)) return true;
         }
-        else if (ConfigModel.searchBundles && stack.getItem() instanceof BundleItem) {
+        else if (CSConfig.searchBundles && stack.getItem() instanceof BundleItem) {
             NbtCompound nbt = stack.getOrCreateNbt();
             if (matchesContents(query, nbt)) return true;
         }
@@ -107,7 +107,7 @@ public class SearchHelper {
     }
 
     private static boolean matchesSpell(Query query, String name, int level) {
-        if (!ConfigModel.interpretNumbersAsLevels) {
+        if (!CSConfig.interpretNumbersAsLevels) {
             return matchesName(query, name) || matchesLevel(query, level);
         }
 

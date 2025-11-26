@@ -1,6 +1,6 @@
 package me.jjblock21.containersearch.mixins;
 
-import me.jjblock21.containersearch.core.SlotExtension;
+import me.jjblock21.containersearch.core.SearchableItem;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.screen.slot.Slot;
 import org.spongepowered.asm.mixin.Mixin;
@@ -13,9 +13,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.function.Consumer;
 
 @Mixin(Slot.class)
-public class SlotMixin implements SlotExtension {
+public class SlotMixin implements SearchableItem {
     @Unique private Consumer<Inventory> container_search$modifyListener;
-    @Unique private boolean container_search$matching = true;
+    @Unique private boolean container_search$enabled = true;
 
     @Unique
     @Override
@@ -25,8 +25,8 @@ public class SlotMixin implements SlotExtension {
 
     @Unique
     @Override
-    public void container_search$setMatching(boolean value) {
-        container_search$matching = value;
+    public void container_search$setEnabled(boolean value) {
+        container_search$enabled = value;
     }
 
     @Inject(method = "markDirty", at = @At(value = "HEAD"))
@@ -38,6 +38,6 @@ public class SlotMixin implements SlotExtension {
 
     @Inject(method = "isEnabled", at = @At(value = "RETURN"), cancellable = true)
     private void isEnabled(CallbackInfoReturnable<Boolean> cir) {
-        cir.setReturnValue(cir.getReturnValueZ() && container_search$matching);
+        cir.setReturnValue(cir.getReturnValueZ() && container_search$enabled);
     }
 }

@@ -1,10 +1,12 @@
 package me.jjblock21.containersearch.mixins;
 
-import me.jjblock21.containersearch.core.SearchProvider;
+import me.jjblock21.containersearch.core.SearchManager;
 import me.jjblock21.containersearch.core.SearchBarWidget;
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
-import net.minecraft.client.gui.widget.ClickableWidget;
+import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.Inventory;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
@@ -17,35 +19,38 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(HandledScreen.class)
 public abstract class HandledScreenMixin extends Screen {
+    @Unique
+    private SearchManager container_search$searchManager;
+
     /**
-     * Override this in a super class to enable search functionality for that container
+     * Override this in a superclass to enable search functionality
+     * @return The inventory to search
      */
     @Unique
-    protected SearchProvider container_search$createSearchProvider() {
+    protected Inventory container_search$getInventoryToSearch() {
         return null;
+    }
+
+    @Inject(method="<init>", at = @At("TAIL"))
+    private void init(ScreenHandler handler, PlayerInventory inventory, Text title, CallbackInfo ci) {
+        Inventory inv = container_search$getInventoryToSearch();
+        if (inv != null) {
+            HandledScreen<?> screen = (HandledScreen<?>)(Object)this;
+            container_search$searchManager = new SearchManager(screen, inventory);
+        }
     }
 
     @Inject(method = "init", at = @At("TAIL"))
     private void init(CallbackInfo ci) {
-        SearchProvider provider = container_search$createSearchProvider();
-        if (provider == null) return;
-
-        // register custom widgets
-        for (ClickableWidget widget : provider.createWidgets()) {
-            addDrawableChild(widget);
-            if (widget instanceof SearchBarWidget) {
-                setFocused(widget);
-            }
+        if (container_search$searchManager != null) {
+            container_search$searchManager.init(this::addDrawableChild);
         }
     }
 
-    // the method name is misleading,
     // this is called every time you interact with a slot (doesn't have to be clicking)
     @Inject(method = "onMouseClick(Lnet/minecraft/screen/slot/Slot;IILnet/minecraft/screen/slot/SlotActionType;)V",
         at = @At(value = "TAIL"))
     private void onMouseClick(Slot slot, int slotId, int button, SlotActionType actionType, CallbackInfo ci) {
-        // ONLY DO THIS TO THE SEARCH BAR!
-        // some gui elements break when you do this to them
         if (getFocused() instanceof SearchBarWidget) {
             setFocused(null);
         }

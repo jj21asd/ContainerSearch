@@ -2,7 +2,7 @@ package me.jjblock21.containersearch;
 
 import eu.midnightdust.lib.config.MidnightConfig;
 
-public class ConfigModel extends MidnightConfig {
+public class CSConfig extends MidnightConfig {
     @Comment(centered = true) public static Comment behaviorHeader;
     @Entry public static boolean searchShulkers = true;
     @Entry public static boolean searchBundles = true;
